@@ -22,20 +22,26 @@ class ListDisplay extends React.Component
         this.name = name;
         this.items = [];
     }
+
     render()
     {
         return (
             <div>
-                List: {this.name}
+                <h1>List: {this.name}</h1>
+                {this.render_items ()}
             </div>
         );
+    }
+
+    render_items ()
+    {
+        if ( this.items.length === 0 )
+            return (<p>No items.</p>);
+        return (<p>Formatted list</p>);
     }
 }
 
 function formatList ( l ) {
-    if ( l.length === 0 )
-        return (<p>No items.</p>);
-    return (<p>Formatted list</p>);
 }
 
 export default App;
