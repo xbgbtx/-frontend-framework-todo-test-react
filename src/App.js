@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 let todo = [];
@@ -15,12 +14,19 @@ function App() {
         {formatList ( done )}
 
         <h1>Add Item:</h1>
+        <form>
+            <label>
+                Add Todo:
+                <input type="text" name="todo-input" />
+            </label>
+            <input type="submit" value="Submit" />
+        </form>
     </div>
   );
 }
 
 function formatList ( l ) {
-    if ( l.length == 0 )
+    if ( l.length === 0 )
         return (<p>No items.</p>);
     return (<p>Formatted list</p>);
 }
