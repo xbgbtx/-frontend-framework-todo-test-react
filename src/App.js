@@ -2,6 +2,8 @@ import './App.css';
 import React from "react";
 
 function App() {
+    
+    //Todo: create data here and listen for events
 
     return (
         <div className="App">
