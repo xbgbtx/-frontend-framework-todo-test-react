@@ -3,13 +3,9 @@ import React from "react";
 
 function App() {
 
-    let todo = new ListDisplay ( "ToDo" );
-    let done = new ListDisplay ( "Done" );
-    
     return (
         <div className="App">
-            {todo.render()}
-            {done.render()}
+            <TodoItemForm />
         </div>
     );
 }
@@ -41,7 +37,50 @@ class ListDisplay extends React.Component
     }
 }
 
-function formatList ( l ) {
+class TodoItemForm extends React.Component
+{
+    constructor (props)
+    {
+        super (props);
+
+        this.state = { 
+            value : "" 
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+    }
+
+    handleChange ( e )
+    {
+        this.setState ({ value : e.target.value });
+    }
+
+    handleSubmit ( e )
+    {
+        e.preventDefault ();
+        alert ( `Submit: ${this.state.value}` );
+    };
+
+    render ()
+    {
+        return (
+            <div>
+                <h1>Add ToDo Item:</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Add ToDo Item:
+                        <input type="text" name="todo-item"
+                            value={this.state.value}
+                            onChange={this.handleChange}
+                        />
+                    </label>
+                    <input type="submit" value="Add Item" />
+                </form>
+            </div>
+        );
+    }
 }
 
 export default App;
