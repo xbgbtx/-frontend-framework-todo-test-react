@@ -1,28 +1,35 @@
 import './App.css';
-
-let todo = [];
-let done = [];
+import React from "react";
 
 function App() {
-  return (
-    <div className="App">
 
-        <h1>Todo:</h1>
-        {formatList ( todo )}
+    let todo = new ListDisplay ( "ToDo" );
+    let done = new ListDisplay ( "Done" );
+    
+    return (
+        <div className="App">
+            {todo.render()}
+            {done.render()}
+        </div>
+    );
+}
 
-        <h1>Done:</h1>
-        {formatList ( done )}
-
-        <h1>Add Item:</h1>
-        <form>
-            <label>
-                Add Todo:
-                <input type="text" name="todo-input" />
-            </label>
-            <input type="submit" value="Submit" />
-        </form>
-    </div>
-  );
+class ListDisplay extends React.Component
+{
+    constructor ( name )
+    {
+        super ();
+        this.name = name;
+        this.items = [];
+    }
+    render()
+    {
+        return (
+            <div>
+                List: {this.name}
+            </div>
+        );
+    }
 }
 
 function formatList ( l ) {
