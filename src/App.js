@@ -5,6 +5,8 @@ function App() {
 
     return (
         <div className="App">
+            <ListDisplay list_name="ToDo" />
+            <ListDisplay list_name="Done" />
             <TodoItemForm />
         </div>
     );
@@ -12,10 +14,10 @@ function App() {
 
 class ListDisplay extends React.Component
 {
-    constructor ( name )
+    constructor ( props )
     {
-        super ();
-        this.name = name;
+        super ( props );
+        this.name = props.list_name;
         this.items = [];
     }
 
@@ -23,7 +25,7 @@ class ListDisplay extends React.Component
     {
         return (
             <div>
-                <h1>List: {this.name}</h1>
+                <h1>{this.name}:</h1>
                 {this.render_items ()}
             </div>
         );
