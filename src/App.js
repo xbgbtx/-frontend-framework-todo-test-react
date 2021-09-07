@@ -1,25 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
 
+let todo = [];
+let done = [];
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        <h1>Todo:</h1>
+        {formatList ( todo )}
+
+        <h1>Done:</h1>
+        {formatList ( done )}
+
+        <h1>Add Item:</h1>
     </div>
   );
+}
+
+function formatList ( l ) {
+    if ( l.length == 0 )
+        return (<p>No items.</p>);
+    return (<p>Formatted list</p>);
 }
 
 export default App;
