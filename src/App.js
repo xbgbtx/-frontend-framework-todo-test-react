@@ -19,7 +19,7 @@ function App() {
             return;
 
         let new_item = todo_input_text;
-        set_todo_items  ( prev_items => [ ...prev_items, new_item ] );
+        set_todo_items  ( p => [ ...p, new_item ] );
 
         set_todo_input_text ( "" );
     };
@@ -27,6 +27,13 @@ function App() {
     const todo_mark_done_handler = ( item_key ) =>
     {
         console.log ( `Mark Done: ${item_key}` );
+
+        const item_idx = Number ( item_key );
+        const item_text = todo_items[ item_idx ];
+
+        set_todo_items ( p => p.filter ( (_, idx) => idx !== item_idx ) );
+
+        set_done_items ( p => [ item_text, ...p ] );
     };
 
     return (
