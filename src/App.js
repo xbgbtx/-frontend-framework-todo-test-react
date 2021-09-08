@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from "react";
 
-import styles from "./App.module.css";
+import grid_layout from "./css/grid.module.css";
 
 function App() {
     
@@ -47,13 +47,13 @@ function App() {
     };
 
     return (
-        <div className={`${styles.app_root}`}>
+        <div className={`${grid_layout.app_root}`}>
 
-            <div class={`${styles.header_container} ${styles.section}`}>
+            <div class={`${grid_layout.header_container} ${grid_layout.section}`}>
                 ToDo
             </div>
 
-            <div class={`${styles.todo_container} ${styles.section}`}>
+            <div class={`${grid_layout.todo_container} ${grid_layout.section}`}>
                 <ListDisplay 
                     list_name="ToDo" 
                     list_items={todo_items} 
@@ -62,7 +62,7 @@ function App() {
                 />
             </div>
 
-            <div class={`${styles.done_container} ${styles.section}`}>
+            <div class={`${grid_layout.done_container} ${grid_layout.section}`}>
                 <ListDisplay 
                     list_name="Done" 
                     list_items={done_items} 
@@ -71,7 +71,7 @@ function App() {
                 />
             </div>
 
-            <div class={`${styles.input_container} ${styles.section}`}>
+            <div class={`${grid_layout.input_container} ${grid_layout.section}`}>
                 <TodoItemForm 
                     todo_text={todo_input_text}
                     change_cb={e => set_todo_input_text ( e.target.value )}
