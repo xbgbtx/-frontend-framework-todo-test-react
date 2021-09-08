@@ -92,6 +92,7 @@ function App() {
 
             <div class={`${style_grid.input_container} 
                          ${style_grid.section}
+                         ${style_todo.container}
                 `}>
                 <TodoItemForm 
                     todo_text={todo_input_text}
