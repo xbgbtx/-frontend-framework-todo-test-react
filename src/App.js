@@ -2,6 +2,7 @@ import React from "react";
 import {useState} from "react";
 
 import grid_layout from "./css/grid.module.css";
+import text_styles from "./css/text.module.css";
 
 function App() {
     
@@ -49,11 +50,15 @@ function App() {
     return (
         <div className={`${grid_layout.app_root}`}>
 
-            <div class={`${grid_layout.header_container} ${grid_layout.section}`}>
-                ToDo
+            <div class={`${grid_layout.header_container} 
+                         ${grid_layout.section}`}>
+                <span class={`${text_styles.page_title}`}>
+                    ToDo
+                </span>
             </div>
 
-            <div class={`${grid_layout.todo_container} ${grid_layout.section}`}>
+            <div class={`${grid_layout.todo_container} 
+                         ${grid_layout.section}`}>
                 <ListDisplay 
                     list_name="ToDo" 
                     list_items={todo_items} 
@@ -62,7 +67,8 @@ function App() {
                 />
             </div>
 
-            <div class={`${grid_layout.done_container} ${grid_layout.section}`}>
+            <div class={`${grid_layout.done_container} 
+                         ${grid_layout.section}`}>
                 <ListDisplay 
                     list_name="Done" 
                     list_items={done_items} 
@@ -71,7 +77,8 @@ function App() {
                 />
             </div>
 
-            <div class={`${grid_layout.input_container} ${grid_layout.section}`}>
+            <div class={`${grid_layout.input_container} 
+                         ${grid_layout.section}`}>
                 <TodoItemForm 
                     todo_text={todo_input_text}
                     change_cb={e => set_todo_input_text ( e.target.value )}
