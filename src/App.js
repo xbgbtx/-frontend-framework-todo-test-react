@@ -1,8 +1,9 @@
 import React from "react";
 import {useState} from "react";
 
-import grid_layout from "./css/grid.module.css";
-import text_styles from "./css/text.module.css";
+import style_grid from "./css/grid.module.css";
+import style_text from "./css/text.module.css";
+import style_list_display from "./css/list_display.module.css";
 
 function App() {
     
@@ -48,37 +49,43 @@ function App() {
     };
 
     return (
-        <div className={`${grid_layout.app_root}`}>
+        <div className={`${style_grid.app_root}`}>
 
-            <div class={`${grid_layout.header_container} 
-                         ${grid_layout.section}`}>
-                <span class={`${text_styles.page_title}`}>
+            <div class={`${style_grid.header_container} 
+                         ${style_grid.section}`}>
+                <span class={`${style_text.page_title}`}>
                     ToDo
                 </span>
             </div>
 
-            <div class={`${grid_layout.todo_container} 
-                         ${grid_layout.section}`}>
+            <div class={`${style_grid.todo_container} 
+                         ${style_grid.section}`}>
+                
+                <span>
+                    ToDo:
+                </span>
+
                 <ListDisplay 
-                    list_name="ToDo" 
                     list_items={todo_items} 
                     button_text="Mark as Done"
                     button_cb={todo_mark_done_handler}
                 />
             </div>
 
-            <div class={`${grid_layout.done_container} 
-                         ${grid_layout.section}`}>
+            <div class={`${style_grid.done_container} 
+                         ${style_grid.section}`}>
+
+                <span>Done:</span>
+
                 <ListDisplay 
-                    list_name="Done" 
                     list_items={done_items} 
                     button_text="Delete"
                     button_cb={delete_done_item_handler}
                 />
             </div>
 
-            <div class={`${grid_layout.input_container} 
-                         ${grid_layout.section}`}>
+            <div class={`${style_grid.input_container} 
+                         ${style_grid.section}`}>
                 <TodoItemForm 
                     todo_text={todo_input_text}
                     change_cb={e => set_todo_input_text ( e.target.value )}
@@ -90,7 +97,7 @@ function App() {
     );
 }
 
-const ListDisplay = ({ list_name, list_items, button_text, button_cb }) =>
+const ListDisplay = ({  list_items, button_text, button_cb }) =>
 {
     const render_items = () =>
     {
@@ -121,8 +128,7 @@ const ListDisplay = ({ list_name, list_items, button_text, button_cb }) =>
     }
 
     return (
-        <div>
-            <h1>{list_name}:</h1>
+        <div class={`${style_list_display.container}`}>
             {render_items ()}
         </div>
     );
