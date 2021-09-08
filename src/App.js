@@ -61,8 +61,8 @@ function App() {
             </div>
 
             <div class={`${style_grid.todo_container} 
-                         ${style_todo.container}
                          ${style_grid.section}
+                         ${style_todo.container}
                 `}>
                 
                 <span>
@@ -77,8 +77,8 @@ function App() {
             </div>
 
             <div class={`${style_grid.done_container} 
-                         ${style_todo.container}
                          ${style_grid.section}
+                         ${style_todo.container}
                 `}>
 
                 <span>Done:</span>
