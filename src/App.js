@@ -16,12 +16,6 @@ function App() {
         console.log ( `Submit: ${todo_input_text}` );
     };
 
-    const todo_change_handler = e =>
-    {
-        todo_input_text += e.target.value;
-        console.log ( e.target.value );
-    };
-
     return (
         <div className="App">
         <ListDisplay list_name="ToDo" list_items={todo_items} />
