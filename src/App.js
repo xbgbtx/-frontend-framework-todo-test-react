@@ -24,6 +24,11 @@ function App() {
         set_todo_input_text ( "" );
     };
 
+    const todo_mark_done_handler = ( item_key ) =>
+    {
+        console.log ( `Mark Done: ${item_key}` );
+    };
+
     return (
         <div className="App">
 
@@ -31,12 +36,14 @@ function App() {
                 list_name="ToDo" 
                 list_items={todo_items} 
                 button_text="Mark as Done"
+                button_cb={todo_mark_done_handler}
             />
 
             <ListDisplay 
                 list_name="Done" 
                 list_items={done_items} 
                 button_text="Delete"
+                button_cb={() => {}}
             />
 
             <TodoItemForm 
@@ -49,21 +56,28 @@ function App() {
     );
 }
 
-const ListDisplay = ({ list_name, list_items, button_text }) =>
+const ListDisplay = ({ list_name, list_items, button_text, button_cb }) =>
 {
     const render_items = () =>
     {
         if ( list_items.length === 0 )
             return (<p>No items.</p>);
 
-        let list_html = list_items.map ( (item, idx) => (
-            <li key={idx.toString()}>
-                {item}
-                <input type="button" 
-                    value={button_text}
-                />
-            </li>
-        ));
+
+        const list_html = list_items.map ( (item, idx) => 
+        {
+            const item_key = idx.toString();
+
+            return (
+                <li key={item_key}>
+                    {item}
+                    <input type="button" 
+                        value={button_text}
+                        onClick={ () => button_cb ( item_key ) }
+                    />
+                </li>
+            );
+        });
 
         return (
             <ol>
