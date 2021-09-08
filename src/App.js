@@ -2,8 +2,7 @@ import React from "react";
 import {useState} from "react";
 
 import style_grid from "./css/grid.module.css";
-import style_text from "./css/text.module.css";
-import style_list_display from "./css/list_display.module.css";
+import style_todo from "./css/todo.module.css";
 
 function App() {
     
@@ -52,14 +51,19 @@ function App() {
         <div className={`${style_grid.app_root}`}>
 
             <div class={`${style_grid.header_container} 
-                         ${style_grid.section}`}>
-                <span class={`${style_text.page_title}`}>
+                         ${style_grid.section}
+                `}>
+
+                <span class={`${style_todo.page_title}`}>
                     ToDo
                 </span>
+
             </div>
 
             <div class={`${style_grid.todo_container} 
-                         ${style_grid.section}`}>
+                         ${style_todo.container}
+                         ${style_grid.section}
+                `}>
                 
                 <span>
                     ToDo:
@@ -73,7 +77,9 @@ function App() {
             </div>
 
             <div class={`${style_grid.done_container} 
-                         ${style_grid.section}`}>
+                         ${style_todo.container}
+                         ${style_grid.section}
+                `}>
 
                 <span>Done:</span>
 
@@ -85,7 +91,8 @@ function App() {
             </div>
 
             <div class={`${style_grid.input_container} 
-                         ${style_grid.section}`}>
+                         ${style_grid.section}
+                `}>
                 <TodoItemForm 
                     todo_text={todo_input_text}
                     change_cb={e => set_todo_input_text ( e.target.value )}
@@ -128,7 +135,7 @@ const ListDisplay = ({  list_items, button_text, button_cb }) =>
     }
 
     return (
-        <div class={`${style_list_display.container}`}>
+        <div>
             {render_items ()}
         </div>
     );
