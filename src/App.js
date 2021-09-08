@@ -150,7 +150,7 @@ const TodoItemForm = ({ todo_text, change_cb, submit_cb }) =>
             <h1>Add ToDo Item:</h1>
             <form onSubmit={submit_cb}>
                 <label>
-                    Add ToDo Item:
+                    ToDo:
                     <input type="text" name="todo-item"
                         value={todo_text}
                         onChange={change_cb}
