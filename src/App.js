@@ -36,6 +36,15 @@ function App() {
         set_done_items ( p => [ item_text, ...p ] );
     };
 
+    const delete_done_item_handler = ( item_key ) =>
+    {
+        console.log ( `Delete: ${item_key}` );
+
+        const item_idx = Number ( item_key );
+
+        set_done_items ( p => p.filter ( (_, idx) => idx !== item_idx ) );
+    };
+
     return (
         <div className="App">
 
@@ -50,7 +59,7 @@ function App() {
                 list_name="Done" 
                 list_items={done_items} 
                 button_text="Delete"
-                button_cb={() => {}}
+                button_cb={delete_done_item_handler}
             />
 
             <TodoItemForm 
