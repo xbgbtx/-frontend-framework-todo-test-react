@@ -14,6 +14,14 @@ function App() {
         e.preventDefault ();
 
         console.log ( `Submit: ${todo_input_text}` );
+
+        if ( todo_input_text.length < 1 )
+            return;
+
+        let new_item = todo_input_text;
+        set_todo_items  ( prev_items => [ ...prev_items, new_item ] );
+
+        set_todo_input_text ( "" );
     };
 
     return (
@@ -37,7 +45,7 @@ const ListDisplay = ({ list_name, list_items }) =>
             return (<p>No items.</p>);
 
         let list_html = list_items.map ( (item, idx) => (
-            <li key={(idx+1).toString()}>
+            <li key={idx.toString()}>
                 {item}
             </li>
         ));
