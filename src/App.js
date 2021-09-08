@@ -4,8 +4,8 @@ import {useState} from "react";
 
 function App() {
     
-    let todo_items = [];
-    let done_items = [ "foo", "bar", "baz" ];
+    const [ todo_items, set_todo_items ] = useState([]);
+    const [ done_items, set_done_items ] = useState([]);
 
     const [ todo_input_text, set_todo_input_text ] = useState("");
 
