@@ -26,18 +26,30 @@ function App() {
 
     return (
         <div className="App">
-        <ListDisplay list_name="ToDo" list_items={todo_items} />
-        <ListDisplay list_name="Done" list_items={done_items} />
-        <TodoItemForm 
-            todo_text={todo_input_text}
-            change_cb={e => set_todo_input_text ( e.target.value )}
-            submit_cb={todo_submit_handler}
-        />
+
+            <ListDisplay 
+                list_name="ToDo" 
+                list_items={todo_items} 
+                button_text="Mark as Done"
+            />
+
+            <ListDisplay 
+                list_name="Done" 
+                list_items={done_items} 
+                button_text="Delete"
+            />
+
+            <TodoItemForm 
+                todo_text={todo_input_text}
+                change_cb={e => set_todo_input_text ( e.target.value )}
+                submit_cb={todo_submit_handler}
+            />
+
         </div>
     );
 }
 
-const ListDisplay = ({ list_name, list_items }) =>
+const ListDisplay = ({ list_name, list_items, button_text }) =>
 {
     const render_items = () =>
     {
@@ -47,6 +59,9 @@ const ListDisplay = ({ list_name, list_items }) =>
         let list_html = list_items.map ( (item, idx) => (
             <li key={idx.toString()}>
                 {item}
+                <input type="button" 
+                    value={button_text}
+                />
             </li>
         ));
 
