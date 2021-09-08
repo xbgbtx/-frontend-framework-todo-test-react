@@ -1,4 +1,21 @@
 .app_root
 {
    background-color: #0b0722;
+   display: grid;
+   grid-template:
+      "header header"
+      "todo done"
+      "input input"
+}
+
+.header_container { grid-area: header; }
+.todo_container { grid-area: todo; }
+.done_container { grid-area: done; }
+.input_container { grid-area: input; }
+
+.section
+{
+   display: grid;
+   place-items: center;
+   text-align: center;
 }

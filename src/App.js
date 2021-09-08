@@ -49,25 +49,35 @@ function App() {
     return (
         <div className={`${styles.app_root}`}>
 
-            <ListDisplay 
-                list_name="ToDo" 
-                list_items={todo_items} 
-                button_text="Mark as Done"
-                button_cb={todo_mark_done_handler}
-            />
+            <div class={`${styles.header_container} ${styles.section}`}>
+                ToDo
+            </div>
 
-            <ListDisplay 
-                list_name="Done" 
-                list_items={done_items} 
-                button_text="Delete"
-                button_cb={delete_done_item_handler}
-            />
+            <div class={`${styles.todo_container} ${styles.section}`}>
+                <ListDisplay 
+                    list_name="ToDo" 
+                    list_items={todo_items} 
+                    button_text="Mark as Done"
+                    button_cb={todo_mark_done_handler}
+                />
+            </div>
 
-            <TodoItemForm 
-                todo_text={todo_input_text}
-                change_cb={e => set_todo_input_text ( e.target.value )}
-                submit_cb={todo_submit_handler}
-            />
+            <div class={`${styles.done_container} ${styles.section}`}>
+                <ListDisplay 
+                    list_name="Done" 
+                    list_items={done_items} 
+                    button_text="Delete"
+                    button_cb={delete_done_item_handler}
+                />
+            </div>
+
+            <div class={`${styles.input_container} ${styles.section}`}>
+                <TodoItemForm 
+                    todo_text={todo_input_text}
+                    change_cb={e => set_todo_input_text ( e.target.value )}
+                    submit_cb={todo_submit_handler}
+                />
+            </div>
 
         </div>
     );
