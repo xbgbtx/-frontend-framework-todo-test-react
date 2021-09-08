@@ -1,6 +1,8 @@
 import React from "react";
 import {useState} from "react";
 
+import styles from "./App.module.css";
+
 function App() {
     
     const [ todo_items, set_todo_items ] = useState([]);
@@ -45,7 +47,7 @@ function App() {
     };
 
     return (
-        <div className="App">
+        <div className={`${styles.app_root}`}>
 
             <ListDisplay 
                 list_name="ToDo" 
