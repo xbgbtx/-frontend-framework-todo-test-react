@@ -3,42 +3,45 @@ import React from "react";
 
 function App() {
     
-    //Todo: create data here and listen for events
+    let todo_items = [];
+    let done_items = [ "foo", "bar", "baz" ];
 
     return (
         <div className="App">
-            <ListDisplay list_name="ToDo" />
-            <ListDisplay list_name="Done" />
+        <ListDisplay list_name="ToDo" list_items={todo_items} />
+        <ListDisplay list_name="Done" list_items={done_items} />
             <TodoItemForm />
         </div>
     );
 }
 
-class ListDisplay extends React.Component
+const ListDisplay = ({ list_name, list_items }) =>
 {
-    constructor ( props )
+    const render_items = () =>
     {
-        super ( props );
-        this.name = props.list_name;
-        this.items = [];
-    }
+        if ( list_items.length === 0 )
+            return (<p>No items.</p>);
 
-    render()
-    {
+        let list_html = list_items.map ( (item, idx) => (
+            <li key={(idx+1).toString()}>
+                {item}
+            </li>
+        ));
+
         return (
-            <div>
-                <h1>{this.name}:</h1>
-                {this.render_items ()}
-            </div>
+            <ol>
+                {list_html}
+            </ol>
         );
     }
 
-    render_items ()
-    {
-        if ( this.items.length === 0 )
-            return (<p>No items.</p>);
-        return (<p>Formatted list</p>);
-    }
+    return (
+        <div>
+            <h1>{list_name}:</h1>
+            {render_items ()}
+        </div>
+    );
+
 }
 
 class TodoItemForm extends React.Component
