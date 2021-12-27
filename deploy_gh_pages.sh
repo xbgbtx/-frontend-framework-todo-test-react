@@ -3,6 +3,8 @@
 BUILD_CMD="npm run build"
 BUILD_DIR="$PWD/build"
 
+GH_PAGES_BRANCH="gh-pages"
+
 if [ ! -d "$BUILD_DIR" ]; then
    mkdir "$BUILD_DIR"
 fi
@@ -21,7 +23,7 @@ git worktree prune
 rm -rf ".git/worktrees/$BUILD_DIR/"
 
 echo "Checking out gh-pages branch into \"$BUILD_DIR\""
-git worktree add -B gh-pages "$BUILD_DIR" 
+git worktree add -b $BUILD_DIR $GH_PAGES_BRANCH
 
 echo "Removing existing files"
 rm -rf "$BUILD_DIR"/*
@@ -35,5 +37,5 @@ $BUILD_CMD
 echo "Updating gh-pages branch"
 cd "$BUILD_DIR" && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
 
-git push origin gh-pages
+git push origin $GH_PAGES_BRANCH
 
