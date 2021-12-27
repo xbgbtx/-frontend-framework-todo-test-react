@@ -5,17 +5,13 @@ BUILD_DIR="$PWD/build"
 
 GH_PAGES_BRANCH="gh-pages"
 
-if [ ! -d "$BUILD_DIR" ]; then
-   mkdir "$BUILD_DIR"
-fi
-
 echo "Building to $BUILD_DIR"
 
-if [[ $(git status -s) ]]; then
-   echo "The working directory is dirty. Please commit any pending changes."
-   exit 1;
-fi
-
+#if [[ $(git status -s) ]]; then
+#   echo "The working directory is dirty. Please commit any pending changes."
+#   exit 1;
+#fi
+#
 echo "Deleting old publication"
 rm -rf "$BUILD_DIR"
 mkdir "$BUILD_DIR"
@@ -26,7 +22,7 @@ echo "Checking out gh-pages branch into \"$BUILD_DIR\""
 git worktree add -b $BUILD_DIR $GH_PAGES_BRANCH
 
 echo "Removing existing files"
-rm -rf "$BUILD_DIR"/*
+rm -rf $BUILD_DIR/*
 
 echo "Running Build"
 $BUILD_CMD
