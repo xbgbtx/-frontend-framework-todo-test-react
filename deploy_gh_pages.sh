@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BUILD_CMD="npm run build"
-BUILD_DIR="$PWD/build"
+BUILD_DIR="build"
 
 GH_PAGES_BRANCH="gh-pages"
 
