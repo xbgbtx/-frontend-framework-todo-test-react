@@ -15,3 +15,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
    * I ran into some mess between webpack, create-react-app, yarn and npm
    * Spent a long time trying to bundle a component to use in another
      app with no joy,
+* It is not easy to deploy this page to github pages
