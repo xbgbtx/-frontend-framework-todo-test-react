@@ -28,9 +28,6 @@ git worktree add -b $BUILD_DIR $GH_PAGES_BRANCH
 echo "Removing existing files"
 rm -rf "$BUILD_DIR"/*
 
-echo "Copying project submodules"
-rsync -av --exclude='*.git*' project_submodules/ "$BUILD_DIR"
-
 echo "Running Build"
 $BUILD_CMD
 
