@@ -18,10 +18,10 @@ echo "Deleting old publication"
 rm -rf "$BUILD_DIR"
 mkdir "$BUILD_DIR"
 git worktree prune
-rm -rf .git/worktrees/"$BUILD_DIR"/
+rm -rf ".git/worktrees/$BUILD_DIR/"
 
 echo "Checking out gh-pages branch into \"$BUILD_DIR\""
-git worktree add -B gh-pages "$BUILD_DIR" origin/gh-pages
+git worktree add -B gh-pages "$BUILD_DIR" 
 
 echo "Removing existing files"
 rm -rf "$BUILD_DIR"/*
@@ -35,5 +35,5 @@ $BUILD_CMD
 echo "Updating gh-pages branch"
 cd "$BUILD_DIR" && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
 
-git push origin gh-pages
+git push origin 
 
