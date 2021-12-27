@@ -19,7 +19,7 @@ git worktree prune
 rm -rf ".git/worktrees/$BUILD_DIR/"
 
 echo "Checking out gh-pages branch into \"$BUILD_DIR\""
-git worktree add -b $BUILD_DIR $GH_PAGES_BRANCH
+git worktree add -b $GH_PAGES_BRANCH $BUILD_DIR
 
 echo "Removing existing files"
 rm -rf $BUILD_DIR/*
