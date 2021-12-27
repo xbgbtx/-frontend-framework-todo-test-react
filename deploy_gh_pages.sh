@@ -35,5 +35,5 @@ $BUILD_CMD
 echo "Updating gh-pages branch"
 cd "$BUILD_DIR" && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
 
-git push origin 
+git push origin gh-pages
 
